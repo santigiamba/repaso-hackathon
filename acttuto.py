@@ -36,6 +36,9 @@ pygame.mixer.music.play(-1)
 sonido_acierto = pygame.mixer.Sound("sonido_acierto.wav")
 sonido_error = pygame.mixer.Sound("sonido_error.wav")
 
+fondo = pygame.image.load("montaña.jpg")
+fondo = pygame.transform.scale(fondo, (ANCHO, ALTO))
+
 while True:
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
@@ -71,7 +74,8 @@ while True:
 
     objetos = [o for o in objetos if o["rect"].y < ALTO]
 
-    pantalla.fill(AZUL)
+    pantalla.blit(fondo, (0, 0))
+    
     pygame.draw.rect(pantalla, VERDE, (0, 570, ANCHO, 30))
     pygame.draw.rect(pantalla, GRIS, contenedor)
 
